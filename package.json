@@ -1,0 +1,55 @@
+{
+  "name": "mundo_afora",
+  "version": "1.0.0",
+  "description": "The source repository for ggarciabas.github.io, the photography web site.",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ggarciabas/ggarciabas.github.io.git"
+  },
+  "author": "Giovanna Garcia Basilio <ggarciabas@gmail.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "breakpoint-sass": "latest",
+    "deepmerge": "latest",
+    "del": "latest",
+    "eslint": "latest",
+    "exif-parser": "latest",
+    "fg-loadcss": "latest",
+    "glob": "latest",
+    "grunt-grunticon": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-awspublish": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-eslint": "latest",
+    "gulp-help": "latest",
+    "gulp-image-resize": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-rename": "latest",
+    "gulp-rm": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "gulpicon": "latest",
+    "image-size": "latest",
+    "jpeg-autorotate": "latest",
+    "js-yaml": "latest",
+    "merge-stream": "latest",
+    "photoswipe": "latest",
+    "recursive-readdir-sync": "latest",
+    "run-sequence": "latest"
+  },
+  "scripts": {
+    "postinstall": "which gm || echo 'Please install GraphicsMagick (specifically, the gm command is needed for photo manipulation)'"
+  },
+  "dependencies": {
+    "gulp-install": "latest",
+    "jpegtran-bin": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/ggarciabas/ggarciabas.github.io/issues"
+  },
+  "homepage": "https://github.com/ggarciabas/ggarciabas.github.io#readme",
+  "main": "gulpfile.js"
+}
