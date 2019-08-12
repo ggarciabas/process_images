@@ -1,1 +1,5 @@
-source
+source/*
+.vscode/*
+.DS_Store
+
+!*/

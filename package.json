@@ -23,7 +23,6 @@
     "gulp-clean-css": "latest",
     "gulp-concat": "latest",
     "gulp-eslint": "latest",
-    "gulp-help": "latest",
     "gulp-image-resize": "latest",
     "gulp-imagemin": "latest",
     "gulp-rename": "latest",
@@ -44,6 +43,7 @@
     "postinstall": "which gm || echo 'Please install GraphicsMagick (specifically, the gm command is needed for photo manipulation)'"
   },
   "dependencies": {
+    "gulp-help": "^1.6.1",
     "gulp-install": "latest",
     "jpegtran-bin": "latest"
   },
