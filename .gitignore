@@ -1,7 +1,9 @@
-source/*
+
 .vscode/*
 .DS_Store
 
-logo_.bmp
+logo_*.png
 
 !*/
+
+source/
