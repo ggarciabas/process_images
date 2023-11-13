@@ -15,29 +15,43 @@ do
     magick convert "./source/new/""$image" -resize 1200x700 -auto-orient -quality 90% "./source/photo/thumb/""$image"        
 
     # watermark
-    lw=$(magick identify -format '%w' "./_logo/rancheiros_brasao.png")
-    lh=$(magick identify -format '%h' "./_logo/rancheiros_brasao.png")      
+    brasao="brasao_2"
+    lw=$(magick identify -format '%w' "./_logo/""$brasao"".png")
+    lh=$(magick identify -format '%h' "./_logo/"$brasao".png")      
     ih=$(magick identify -format '%h' "./source/photo/thumb/""$image")
     echo $lw $lh $ih
-    ch=$(echo "0.3 * $ih" | bc -l)
+    ch=$(echo "0.25 * $ih" | bc -l)
     cw=$(echo "($ch * $lw)/$lh" | bc -l)
 
     # read
-    magick convert "./_logo/rancheiros_brasao.png" -resize $(echo $cw)x$(echo $ch)\! logo_brasao.png
+    magick convert "./_logo/"$brasao".png" -resize $(echo $cw)x$(echo $ch)\! logo_brasao.png
     echo $cw"x"$ch
 
     # watermark
-    lw=$(magick identify -format '%w' "./_logo/mpv.png")
-    lh=$(magick identify -format '%h' "./_logo/mpv.png")      
+    mpv="mpv_3" # checked
+    lw=$(magick identify -format '%w' "./_logo/""$mpv"".png")
+    lh=$(magick identify -format '%h' "./_logo/"$mpv".png")      
     ih=$(magick identify -format '%h' "./source/photo/thumb/""$image")
     echo $lw $lh $ih
-    ch=$(echo "0.2 * $ih" | bc -l)
+    ch=$(echo "0.18 * $ih" | bc -l)
     cw=$(echo "($ch * $lw)/$lh" | bc -l)
-    magick convert "./_logo/mpv.png" -resize $(echo $cw)x$(echo $ch)\! logo_mpv.png
+    magick convert "./_logo/"$mpv".png" -resize $(echo $cw)x$(echo $ch)\! logo_mpv.png
+    echo $cw"x"$ch
+
+    # watermark
+    water="water_mark_a8" # checked
+    lw=$(magick identify -format '%w' "./_logo/""$water"".png")
+    lh=$(magick identify -format '%h' "./_logo/"$water".png")      
+    ih=$(magick identify -format '%h' "./source/photo/thumb/""$image")
+    echo $lw $lh $ih
+    ch=$(echo "0.4 * $ih" | bc -l)
+    cw=$(echo "($ch * $lw)/$lh" | bc -l)
+    magick convert "./_logo/"$water".png" -resize $(echo $cw)x$(echo $ch)\! logo_water.png
     echo $cw"x"$ch
 
     magick composite -gravity southwest logo_brasao.png "./source/photo/thumb/""$image" "./source/photo/thumb/""$image"
     magick composite -gravity northeast logo_mpv.png "./source/photo/thumb/""$image" "./source/photo/thumb/""$image"
+    magick composite -gravity center logo_water.png "./source/photo/thumb/""$image" "./source/photo/thumb/""$image"
     
     # copyright
     exiv2 -M"set Exif.Image.Copyright Rancheiros MC All rights reserved 2023" "./source/photo/thumb/""$image"
